@@ -26,7 +26,7 @@ const Counter = ({ id, initial, step = 1, onDelete}) => {
       <button onClick={handlePlus} className="btn btn-outline-danger">+</button>
       <button onClick={handleDelete} className='btn text-danger opacity-75 border-0'><FontAwesomeIcon icon={faTrashCan} /></button>
     </div>
-  );
+  ); 
 };
 
 export default Counter;

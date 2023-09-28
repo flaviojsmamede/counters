@@ -11,23 +11,24 @@ const App = () => {
   ]);
 
   const handleAddCounter = () => {
-
+    const newCounter = { id: new Date().getTime(), initial: 0 }
+    setCounters([newCounter, ...counters])
   }
 
-  const handleRemoveCounter = () => {
-
+  const handleDeleteCounter = (id) => {
+    const newCounters = counters.filter((counter) => counter.id !== id);
+    setCounters(newCounters);
   }
 
 
 
   return (
   <div className="container m-5">
-    <button onClick="handleAddCounter" className='btn btn-primary'>Add counter</button>
+    <button onClick={handleAddCounter} className='btn btn-primary'>Add Counter</button>
     {counters.map(({ id, ...props }) => {
       return(
-      <div key={id}>
-        <Counter {...props} />
-        <button onClick="handleRemoveCounter" className='btn btn-outline-danger'>Remove counter <i class="fa-solid fa-trash-can"></i></button>
+      <div key={id} className='d-flex mt-4'>
+        <Counter id={id} {...props} onDelete={handleDeleteCounter} />
       </div>
       );
     })}

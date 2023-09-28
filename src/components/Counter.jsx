@@ -1,6 +1,8 @@
 import  { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
-const Counter = ({ initial, step = 1}) => {
+const Counter = ({ id, initial, step = 1, onDelete}) => {
   const [count, setCount] = useState(initial);
 
   const handleMinus = () => {
@@ -13,11 +15,16 @@ const Counter = ({ initial, step = 1}) => {
     setCount(count + step);
   }
 
+  const handleDelete = () => {
+    onDelete(id);
+  }
+
   return (
-    <div className="m-3">
-      <button onClick={handleMinus} className="btn btn-outline-primary">-</button>
-      <span className="p-4 text-primary">{count}</span>
-      <button onClick={handlePlus} className="btn btn-outline-primary">+</button>
+    <div>
+      <button onClick={handleMinus} className="btn btn-outline-danger">-</button>
+      <span className="ps-3 pe-3 text-primary">{count}</span>
+      <button onClick={handlePlus} className="btn btn-outline-danger">+</button>
+      <button onClick={handleDelete} className='btn text-danger opacity-75 border-0'><FontAwesomeIcon icon={faTrashCan} /></button>
     </div>
   );
 };

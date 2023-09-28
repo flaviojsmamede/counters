@@ -21,12 +21,12 @@ const Counter = ({ id, initial, step = 1, onDelete}) => {
 
   return (
     <div>
-      <button onClick={handleMinus} className="btn btn-outline-danger">-</button>
+      <button onClick={handleMinus} className="btn btn-outline-primary">-</button>
       <span className="ps-3 pe-3 text-primary">{count}</span>
-      <button onClick={handlePlus} className="btn btn-outline-danger">+</button>
+      <button onClick={handlePlus} className="btn btn-outline-primary">+</button>
       <button onClick={handleDelete} className='btn text-danger opacity-75 border-0'><FontAwesomeIcon icon={faTrashCan} /></button>
     </div>
-  ); 
+  );
 };
 
 export default Counter;
